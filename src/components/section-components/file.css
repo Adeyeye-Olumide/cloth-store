@@ -1,0 +1,71 @@
+.items-section {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    gap: 20px;
+    margin-top: 6px;
+    padding:0 20px 0 20px
+}
+.upper, .lower {
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    font-family: "Fira Sans Condensed";
+}
+.categories {
+    height: 300px;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.categories:hover{
+    transform: scale(1.05);
+    transition: transform 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+
+.hat, .men, .women, .jackets, .sneakers {
+    text-align: center;
+    letter-spacing: -1.5px;
+    background-color: #ced4da79;
+    width: 150px;
+    height: 100px;
+    border:2px solid black;
+    align-content: center;
+    padding-top: 22px;
+    
+}
+
+.cap {
+    background-image: url("img/hat.jpg");
+    background-size: 103%;
+    background-position: 1px;
+}
+
+.jacket {
+    background-image: url("img/jackets.jpg");
+    background-size: 150%;
+    background-repeat: no-repeat;
+}
+
+.shoe {
+    background-image: url("img/sneakers.jpg");
+    background-size: cover;
+    background-position: -100px;
+}
+
+.w {
+    background-image: url("img/women.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+   
+}
+
+.m {
+    background-image: url("img/men.jpg");
+    background-position: -10px;
+    background-size: cover ;
+}
+
