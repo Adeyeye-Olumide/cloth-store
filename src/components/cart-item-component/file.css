@@ -1,0 +1,26 @@
+.cart-item-container {
+    background-color:#495057;
+    display:flex;
+    padding: 20px;
+    justify-content: space-between;
+    margin: 0 20px 20px 20px;
+    font-size: 16px
+    /* height: fit-content;
+   
+    position: relative */
+}
+
+.cart-item-container a{
+    color:white
+}
+
+.cart-item-info h2 {
+    font-size: 15px;
+}
+
+
+
+.cart-item-container span {
+    align-self:end;
+    font-size: 20px;
+}

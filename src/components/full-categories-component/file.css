@@ -1,0 +1,13 @@
+.full-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10px;
+ 
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.full-container .product {
+    display: flex;
+    flex-direction: column;
+}

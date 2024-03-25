@@ -12,9 +12,12 @@ body {
     /* display: flex;
     flex-direction: column;
     align-items: center; */
+    font-family: "Raleway";
 
    
 }
+
+
 
 .App{
     display: grid;
@@ -24,27 +27,29 @@ body {
     height: 100vh
 }
 
-.others {
+/* .others {
     padding-left: 20px;
     color: yellowgreen;
-}
+} */
 
 svg{
     font-size: 18px;
 }
 
 
+
 .App-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
     padding: 0 20px 0 20px;
 }
 
 .nav-options {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 20em;
 }
 
 a{
@@ -53,4 +58,10 @@ a{
     font-size: 18px;
     font-weight: 500;
 
+}
+
+@media screen and (max-width: 393px) {
+   .nav-options .options {
+        font-size: 10px;
+    }
 }

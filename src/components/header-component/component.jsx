@@ -1,13 +1,54 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { createContext, useEffect } from "react";
+import { UserContext } from "../../contexts/users";
+import { CartContext } from "../../contexts/cart";
 import { Outlet } from "react-router";
+import { signOutUser } from "../../utils/firestore-utils/firestore";
+import Cart from "../cart-component/cart-component";
+import { ProductContext } from "../../contexts/products";
+import { useDispatch, useSelector } from "react-redux";
+import { setCartClassName } from "../../store/cart/cart.action";
 import './file.css'
 
-class Header extends Component{
-    render(){
-        return(
-          <div>
-            <header className="App-header">
+
+
+
+function Header (){
+
+  const currentUser = useSelector((state)=> state.user.currentUser)
+  const currentCartClassName = useSelector((state)=> state.cart.currentCartClassName)
+  const cartItem = useSelector((state)=> state.cart.cartItem)
+
+  const dispatch = useDispatch()
+  
+  
+
+
+  function cartToggle(e){
+    e.preventDefault()
+
+   if(cartItem.length>0) dispatch(setCartClassName(null))
+   
+   if(!currentCartClassName)dispatch(setCartClassName("active"))
+    // currentCartClassName?setCartClassName(null):setCartClassName("active")
+
+    console.log(currentCartClassName)
+
+    
+  }
+
+
+
+ 
+    return(
+      <div className="header-container">
+        <header className="App-header">
           <div className='logo'>
+            <Link to='/'>
+
+
             <svg xmlns="http://www.w3.org/2000/svg" 
             width="64" height="64" xmlSpace="preserve"><path fillRule="evenodd" clipRule="evenodd" 
             fill="#212529" d="M56.619 31.765c-1.258 1.593-2.558 3.241-2.589 3.726.104.379 1.357 
@@ -26,33 +67,47 @@ class Header extends Component{
             1.01-1.467 1.882-2.066 2.644zM50.697 
             52.01l.106.002c-.901 0-.78 0-.106-.002zm-12.696-3.989a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
 
+
+
+
+
+
+
+            </Link>
+            
           </div>
 
           <div className='nav-options'>
             <div>
-              <a href='shop'>SHOP</a>
+              <Link className='options' to='shop'>SHOP</Link>
             </div>
 
             <div>
-              <a href=''>CONTACT</a>
+              <Link className='options' to=''>CONTACT</Link>
             </div>
 
             <div>
-              <a href='sign-in'>SIGN IN</a>
+              {!currentUser? <Link className='options' to='sign-in'>SIGN IN</Link>: 
+              <Link className='options' to='sign-in' onClick={signOutUser}>SIGN OUT</Link>}
+              
             </div>
 
             <div>
-              <a href=''>CART</a>
+              <Link className='options' to='' onClick={cartToggle}>CART</Link>
+              <Cart></Cart>
             </div>
-          </div>
+      </div>
 
-        </header>
+      
 
-        <Outlet></Outlet>
-          </div>
-            
-        )
-    }
+    </header>
+    
+
+    <Outlet></Outlet>
+      </div>
+        
+    )
+    
 }
 
 export default Header
